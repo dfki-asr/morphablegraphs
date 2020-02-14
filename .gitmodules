@@ -1,0 +1,3 @@
+[submodule "mgrd"]
+	path = mgrd
+	url = ssh://git@iceland.sb.dfki.de:7999/motsy/mosi_dev_mgrd.git
