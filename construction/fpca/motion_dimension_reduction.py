@@ -36,7 +36,7 @@ from .fpca_temporal_data import FPCATemporalData
 from .fpca_spatial_data import FPCASpatialData
 from anim_utils.utilities.custom_math import areQuatClose, diff_quat, quat_to_logmap, normalize_quaternion, logmap_to_quat
 from ..utils import get_data_analysis_folder
-from anim_utils.utilities import load_json_file, write_to_json_file
+from anim_utils.utilities.io_helper_functions import load_json_file, write_to_json_file
 from anim_utils.animation_data import BVHReader
 from anim_utils.animation_data.utils import convert_euler_frames_to_reduced_euler_frames
 from anim_utils.animation_data.quaternion_frame import convert_euler_frames_to_quaternion_frames
