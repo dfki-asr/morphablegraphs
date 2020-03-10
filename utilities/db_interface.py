@@ -35,7 +35,7 @@ import warnings
 from anim_utils.animation_data import BVHReader, BVHWriter, MotionVector, SkeletonBuilder
 from anim_utils.utilities.db_interface import get_skeleton_from_remote_db, get_skeleton_model_from_remote_db, get_motion_list_from_remote_db,\
                                              get_bvh_str_by_id_from_remote_db, get_annotation_by_id_from_remote_db, \
-                                            get_time_function_by_id_from_remote_db, get_motion_by_id_from_remote_db
+                                            get_time_function_by_id_from_remote_db, get_motion_by_id_from_remote_db, upload_motion_to_db, delete_motion_by_id_from_remote_db
 from ..construction.motion_model_constructor import MotionModelConstructor
 from ..construction.utils import get_cubic_b_spline_knots
 from ..motion_model.motion_primitive_wrapper import MotionPrimitiveModelWrapper
