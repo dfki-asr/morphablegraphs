@@ -1099,7 +1099,7 @@ class MGStatePlanner(object):
 
     def apply_heuristic_ik(self, frames, node, mp_constraints, time_function):
         print("use heuristic")
-        builder = IKConstraintsBuilder2(self.skeleton)
+        builder = IKConstraintsBuilder(self.skeleton)
         ik_constraints = builder.convert_to_ik_constraints_with_relative(frames, mp_constraints.constraints,
                                                                         0, time_function, constrain_orientation=True)
         action_name = node[0]
