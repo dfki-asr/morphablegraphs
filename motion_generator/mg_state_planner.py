@@ -72,6 +72,7 @@ ANIMATED_JOINTS_CUSTOM = [
     "R_foot_jnt"
 ]
 
+WALK_END_STATE = ("walk", "endRightStance")
 REF_VECTOR = np.array([0,0,1])
 
 def stretch_points(points, scale):
@@ -407,8 +408,8 @@ class MGStatePlanner(object):
 
     def generate_action_node_queue(self, action_name, start_node, start_node_type):
         node_queue = []
-        if start_node[0] == "walk" and start_node_type not in [NODE_TYPE_IDLE, NODE_TYPE_END]:
-           node_queue.append((("walk", "endRightStance"), NODE_TYPE_END))
+        if start_node[0] == "walk" and WALK_END_STATE in self._graph.nodes and start_node_type not in [NODE_TYPE_IDLE, NODE_TYPE_END]:
+           node_queue.append((WALK_END_STATE, NODE_TYPE_END))
 
         for node_name, node_type in self.action_definitions[action_name]["node_sequence"]:
             node_queue.append(((action_name, node_name), node_type))
@@ -442,8 +443,8 @@ class MGStatePlanner(object):
 
     def generate_action_node_queue_with_cycles(self, action_name, start_node, start_node_type, n_cycles):
         node_queue = []
-        if start_node[0] == "walk" and start_node_type not in [NODE_TYPE_IDLE, NODE_TYPE_END]:
-           node_queue.append((("walk", "endRightStance"), NODE_TYPE_END))
+        if start_node[0] == "walk" and WALK_END_STATE in self._graph.nodes and start_node_type not in [NODE_TYPE_IDLE, NODE_TYPE_END]:
+           node_queue.append((WALK_END_STATE, NODE_TYPE_END))
 
 
         node_name, node_type = self.action_definitions[action_name]["cycle_start"]
