@@ -379,7 +379,7 @@ class MotionPrimitiveConstraints(object):
 
     def convert_to_ik_constraints(self, motion_state_graph, frame_offset, time_function=None, constrain_orientation=True, version=1):
         print("create ik constraints", len(self.constraints))
-        builder = IKConstraintsBuilder(self.skeleton)
+        builder = IKConstraintsBuilder(self.skeleton, False)
         return builder.convert_to_ik_constraints(self.constraints, frame_offset, time_function, constrain_orientation)
 
     def get_ca_constraints(self):

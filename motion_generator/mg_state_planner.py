@@ -231,6 +231,7 @@ class MGStatePlanningSettings(object):
         self.enable_gesture_parameters = False
         self.gesture_ik_max_iter = 1
         self.ik_interpolation_window = 60
+        self.force_orientation_constraints = False
 
 
 class MGStatePlanner(object):
@@ -1100,7 +1101,7 @@ class MGStatePlanner(object):
 
     def apply_heuristic_ik(self, frames, node, mp_constraints, time_function):
         print("use heuristic")
-        builder = IKConstraintsBuilder(self.skeleton)
+        builder = IKConstraintsBuilder(self.skeleton, self.settings.force_orientation_constraints)
         ik_constraints = builder.convert_to_ik_constraints_with_relative(frames, mp_constraints.constraints,
                                                                         0, time_function, constrain_orientation=True)
         action_name = node[0]
