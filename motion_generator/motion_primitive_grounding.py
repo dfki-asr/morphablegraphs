@@ -24,8 +24,8 @@ import os
 import collections
 from transformations import quaternion_slerp
 from anim_utils.animation_data.skeleton_models import *
-from anim_utils.motion_editing.utils import generate_root_constraint_for_one_foot, generate_root_constraint_for_two_feet, \
-    guess_ground_height, smooth_root_translation_at_end, smooth_root_translation_at_start
+from anim_utils.motion_editing.utils import generate_root_constraint_for_one_foot, smooth_root_translation_at_end, smooth_root_translation_at_start
+from anim_utils.motion_editing.footplant_constraint_generator import guess_ground_height
 from anim_utils.motion_editing.motion_grounding import MotionGroundingConstraint, generate_ankle_constraint_from_toe, create_ankle_constraint_from_toe_and_heel
 from anim_utils.motion_editing.analytical_inverse_kinematics import AnalyticalLimbIK
 
