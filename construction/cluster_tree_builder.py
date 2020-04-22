@@ -32,7 +32,7 @@ import heapq
 import numpy as np
 import pickle as pickle
 from anim_utils.animation_data.bvh import BVHReader
-from anim_utils.animation_data.skeleton_builder import SkeletonBuilder, ROCKETBOX_ANIMATED_JOINT_LIST
+from anim_utils.animation_data.skeleton_builder import SkeletonBuilder
 from anim_utils.animation_data.quaternion_frame import euler_to_quaternion
 from ..space_partitioning.cluster_tree import ClusterTree
 from ..space_partitioning.feature_cluster_tree import FeatureClusterTree
@@ -132,7 +132,7 @@ class ClusterTreeBuilder(object):
         self.tree_type = settings["tree_type"]
         self.feature_type = settings["feature_type"]
         self.output_mode = settings["output_mode"]
-        self.animated_joints = ROCKETBOX_ANIMATED_JOINT_LIST
+        self.animated_joints = None
 
     def set_config_from_file(self, config_file_path):
         config_file = open(config_file_path)
