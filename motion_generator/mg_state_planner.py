@@ -1110,7 +1110,7 @@ class MGStatePlanner(object):
         if len(ik_constraints) > 1:
             frames = self.me.edit_motion_using_ccd(frames, ik_constraints, n_max_iter=max_ik_iter, root_joint=root_joint)
         else:
-            frames = self.me.edit_motion_using_displacement_map_and_ccd(frames, ik_constraints, n_max_iter=max_ik_iter, root_joint=root_joint, influence_range=self.settings.ik_interpolation_window)
+            frames = self.me.edit_motion_using_displacement_map_and_ccd(frames, ik_constraints, n_max_iter=max_ik_iter, root_joint=root_joint, transition_window=self.settings.ik_interpolation_window)
 
         frames = self.me.set_global_joint_orientations(frames, mp_constraints.constraints)
         return frames
