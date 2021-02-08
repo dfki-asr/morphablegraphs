@@ -41,7 +41,7 @@ class LeastSquares(OptimizerBase):
         """
         if self._objective_function is not None and initial_guess is not None:
             if self.verbose:
-                start = time.clock()
+                start = time.time()
                 print("Start optimization using LeastSquares")#, self.optimization_settings["method"]
             try:
                 result = leastsq(self._objective_function,
@@ -57,7 +57,7 @@ class LeastSquares(OptimizerBase):
                 return initial_guess
 
             if self.verbose:
-                print("Finished optimization in ", time.clock()-start, "seconds")
+                print("Finished optimization in ", time.time()-start, "seconds")
             return result[0]
         else:
             print("Error: No objective function set. Return initial guess instead.")

@@ -122,7 +122,7 @@ class MotionGenerator(object):
             write_message_to_log("Error: Could not process input constraints", LOG_MODE_ERROR)
             return None
 
-        start_time = time.clock()
+        start_time = time.time()
 
         start_pose = mg_input_reader.get_start_pose()
         x_offset = start_pose["position"][0]
@@ -143,7 +143,7 @@ class MotionGenerator(object):
         for constraints in action_constraint_list:
             self._generate_action(constraints)
 
-        time_in_seconds = time.clock() - start_time
+        time_in_seconds = time.time() - start_time
         write_message_to_log("Finished synthesis in " + str(int(time_in_seconds / 60)) + " minutes "
                              + str(time_in_seconds % 60) + " seconds", LOG_MODE_INFO)
 

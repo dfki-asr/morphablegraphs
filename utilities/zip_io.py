@@ -235,11 +235,11 @@ class ZipReader(object):
 def main():
     zip_path = "E:\\projects\\INTERACT\\repository\\data\\3 - Motion primitives\\motion_primitives_quaternion_PCA95.zip"
     print(zip_path)
-    start = time.clock()
+    start = time.time()
     zip_loader = ZipReader(zip_path)
     graph_data = zip_loader.get_graph_data()
     print(list(graph_data["subgraphs"]["pick"]["nodes"].keys()))
-    print("finished reading data in", time.clock() - start, "seconds")
+    print("finished reading data in", time.time() - start, "seconds")
     # print  graph_data
 
 if __name__ == "__main__":

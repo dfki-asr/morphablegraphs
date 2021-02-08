@@ -93,10 +93,10 @@ class MGRDSampleFilter(object):
                 quat_splines = motion_primitive.create_multiple_spatial_splines(samples, joints=None)
                 # transform the splines if the constraints are not in the local coordinate system of the motion primitive
                 if not mp_constraints.is_local and mp_constraints.aligning_transform is not None:
-                    start = time.clock()
+                    start = time.time()
                     for qs in quat_splines:
                         MGRDSampleFilter.transform_coeffs(qs, mp_constraints.aligning_transform)
-                    print("transformed splines in", time.clock()-start, "seconds")
+                    print("transformed splines in", time.time()-start, "seconds")
                 return MGRDCartesianConstraint.score_splines(quat_splines, cartesian_constraints)
         else:
             print ("Error: MGRD was not correctly initialized")

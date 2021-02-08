@@ -47,7 +47,7 @@ class NumericalMinimizer(OptimizerBase):
         """
         if self._objective_function is not None and initial_guess is not None:
             if self.verbose:
-                start = time.clock()
+                start = time.time()
                 print("Start optimization using", self.optimization_settings["method"],
                       self.optimization_settings["max_iterations"],
                       self.optimization_settings["diff_eps"])
@@ -69,7 +69,7 @@ class NumericalMinimizer(OptimizerBase):
                 return initial_guess
 
             if self.verbose:
-                print("Finished optimization in ", time.clock()-start, "seconds")
+                print("Finished optimization in ", time.time()-start, "seconds")
             return result.x
         else:
             print("Error: No objective function set. Return initial guess instead.")
