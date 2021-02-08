@@ -31,6 +31,7 @@ import requests
 import collections
 import scipy.interpolate as si
 import bson
+import bz2
 import warnings
 from anim_utils.animation_data import BVHReader, BVHWriter, MotionVector, SkeletonBuilder
 from anim_utils.utilities.db_interface import get_skeleton_from_remote_db, get_skeleton_model_from_remote_db, get_motion_list_from_remote_db,\
@@ -83,8 +84,14 @@ def download_motion_model_from_remote_db(url, model_id, session=None):
     data = {"model_id": model_id}
     if session is not None:
         data.update(session)
-    result_str= call_rest_interface(url, "download_motion_model", data)
-    return result_str
+    result_str= call_bson_rest_interface(url, "download_motion_model", data)
+    try:
+        result_str = bz2.decompress(result_str)
+        result_data = bson.loads(result_str)
+    except:
+        print("exception")
+        result_data = None
+    return result_data
 
 def upload_cluster_tree_to_remote_db(url, model_id, cluster_tree_data, session=None):
     data = {"model_id": model_id, "cluster_tree_data": cluster_tree_data}
@@ -97,8 +104,14 @@ def download_cluster_tree_from_remote_db(url, model_id, session=None):
     data = {"model_id": model_id}
     if session is not None:
         data.update(session)
-    result_str= call_rest_interface(url, "download_cluster_tree", data)
-    return result_str
+    result_str= call_bson_rest_interface(url, "download_cluster_tree", data)
+    try:
+        result_str = bz2.decompress(result_str)
+        result_data = bson.loads(result_str)
+    except:
+        print("exception")
+        result_data = None
+    return result_data
 
 def create_cluster_tree_from_model(model_data, n_samples, n_subdivisions_per_level = 4, session=None):
     skeleton = SkeletonBuilder().load_from_json_data(model_data["skeleton"])

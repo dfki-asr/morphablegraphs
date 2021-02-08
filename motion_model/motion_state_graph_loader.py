@@ -126,25 +126,20 @@ class MotionStateGraphLoader(object):
                 mp_transitions = [key if not key[5:].startswith("walk") else key[:5]+key[10:] for key in mp_transitions]
                 mp_transitions = [key.split(":") if  ":" in key else None for key in mp_transitions]
                 transitions[(a, mp_name)] = mp_transitions
-                model_data_str = download_motion_model_from_remote_db(db_url, model_id)
-                if model_data_str is None:
+                model_data = download_motion_model_from_remote_db(db_url, model_id)
+                if model_data is None:
                     print("Could not load model")
                     continue
-                try:
-                    motion_state_def["mm"] = json.loads(model_data_str)
-                except:
-                    print("Could not load model")
-                    continue
+                motion_state_def["mm"] = model_data
                 # store keyframes in action definition
                 if "keyframes" in motion_state_def["mm"]:
                     for key in motion_state_def["mm"]["keyframes"]:
                         action_def["constraint_slots"][key] = {"node": mp_name, "joint": "left_wrist"}
-                cluster_tree_data_str = download_cluster_tree_from_remote_db(db_url, model_id)
-                if cluster_tree_data_str is not None and len(cluster_tree_data_str) > 0:
-                    try:
-                        motion_state_def["space_partition_json"] = json.loads(cluster_tree_data_str)
-                    except:
-                        print("Could not load tree")
+                cluster_tree_data = download_cluster_tree_from_remote_db(db_url, model_id)
+                if cluster_tree_data is not None:
+                    motion_state_def["space_partition_json"] = cluster_tree_data
+                else:
+                    print("Could not load tree")
                 action_def["nodes"][mp_name] = motion_state_def
             
             meta_info["start_states"] = start_states
