@@ -28,6 +28,7 @@ Created on Thu Jul 16 15:57:51 2015
 
 import collections
 import random
+import numpy as np
 from anim_utils.utilities.log import write_log, write_message_to_log, LOG_MODE_DEBUG, LOG_MODE_INFO, LOG_MODE_ERROR
 
 
@@ -121,13 +122,17 @@ class MotionStateGraph(object):
         start_node = None
         if len(self.node_groups) > 0:
             actions = list(self.node_groups.keys())
-            random_index = random.randrange(0, len(actions), 1)
-            action_name = actions[random_index]
-            start_states = self.get_start_nodes(action_name)
-            if len(start_states) > 0:
-                random_index = random.randrange(0, len(start_states), 1)
-                state_name = start_states[random_index]
-                start_node = action_name, state_name
-        if start_node is None:
-            print("Error: no start node", len(self.node_groups))
+            #random_index = random.randrange(0, len(actions), 1)
+            indices = list(range(len(actions)))
+            np.random.shuffle(indices)
+            for i in indices:
+                action_name = actions[i]
+                start_states = self.get_start_nodes(action_name)
+                if len(start_states) > 0:
+                    random_index = random.randrange(0, len(start_states), 1)
+                    state_name = start_states[random_index]
+                    start_node = action_name, state_name
+                    break
+            if start_node is None:
+                print("Error: no start node", len(self.node_groups))
         return start_node
