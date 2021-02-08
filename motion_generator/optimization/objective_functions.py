@@ -27,11 +27,10 @@ Created on Fri Jul 31 13:21:08 2015
 """
 
 import numpy as np
-from sklearn.mixture.gmm import _log_multivariate_normal_density_full
 from scipy.optimize.optimize import approx_fprime
+from sklearn.mixture.gaussian_mixture import _estimate_log_gaussian_prob
 from anim_utils.animation_data.motion_concatenation import transform_quaternion_frames, get_transform_from_start_pose, align_quaternion_frames_automatically
 from ...constraints.spatial_constraints import SPATIAL_CONSTRAINT_TYPE_TRAJECTORY_SET
-
 
 def align_quaternion_frames(skeleton, node_name, new_frames, prev_frames=None, start_pose=None):
     if prev_frames is not None:
@@ -108,10 +107,7 @@ def step_goal_and_naturalness(s, data):
     return error
 
 def log_likelihood_jac(s, gmm):
-    tmp = np.reshape(s, (1, len(s)))
-    logLikelihoods = _log_multivariate_normal_density_full(tmp,
-                                                           gmm.means,
-                                                           gmm.covars)
+    logLikelihoods = _estimate_log_gaussian_prob(s, gmm.means_, gmm.precisions_cholesky_, 'full')
     logLikelihoods = np.ravel(logLikelihoods)
     numerator = 0
     n_models = len(gmm.weights)
@@ -199,12 +195,8 @@ def obj_spatial_error_sum_and_naturalness_jac(s, data):
     error_scale = data[-1]
     quality_scale = data[-2]
     
-    tmp = np.reshape(s, (1, len(s)))
-    logLikelihoods = _log_multivariate_normal_density_full(tmp,
-                                                           gmm.means_, 
-                                                           gmm.covars_)
+    logLikelihoods = _estimate_log_gaussian_prob(s, gmm.means_, gmm.precisions_cholesky_, 'full')
     logLikelihoods = np.ravel(logLikelihoods)
-
     numerator = 0
 
     n_models = len(gmm.weights_)
