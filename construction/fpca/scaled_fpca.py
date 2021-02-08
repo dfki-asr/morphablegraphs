@@ -105,7 +105,7 @@ class ScaledFunctionalPCA(object):
         data = (self.functional_motion_data, self.cartesian_motion_data, self.skeleton, self.npc, self.elementary_action,
                 self.motion_primitive, self.data_repo, self.skeleton_json, self.knots)
         bnds = tuple((0.0001, None) for i in range(len(self.weight_vec)))
-        start_time = time.clock()
+        start_time = time.time()
         # result = minimize(sfpca_objective_func,
         #                   self.weight_vec,
         #                   args=(data,),
@@ -120,7 +120,7 @@ class ScaledFunctionalPCA(object):
                           options={'maxiter': 1e3,
                                    'maxfun': 1e3,
                                    'gtol': 1e-03})
-        running_time = time.clock() - start_time
+        running_time = time.time() - start_time
         print(('optimization time: ', running_time))
         print(('new weights: ', result.x))
         print((type(result.x)))
