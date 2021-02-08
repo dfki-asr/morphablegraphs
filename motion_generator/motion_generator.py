@@ -72,7 +72,6 @@ class MotionGenerator(object):
         self.scene_interface = SceneInterface()
         if skeleton_model is not None and "heel_offset" in skeleton_model:
             self.footplant_constraint_generator = FootplantConstraintGenerator(self._motion_state_graph.skeleton,
-                                                                               skeleton_model,
                                                                                motion_grounding_settings,
                                                                                self.scene_interface)
             if skeleton_model["joints"]["left_heel"] not in list(self._motion_state_graph.skeleton.nodes.keys()):
@@ -312,7 +311,7 @@ class MotionGenerator(object):
             write_message_to_log("Modify using inverse kinematics"+str(version), LOG_MODE_INFO)
             if version == 1:
                 me.modify_motion_vector(motion_vector)
-                me.fill_rotate_events(motion_vector)
+                #me.fill_rotate_events(motion_vector)
             elif version == 2:
                 me.modify_motion_vector2(motion_vector)
 
