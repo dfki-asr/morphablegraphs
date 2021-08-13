@@ -35,7 +35,7 @@ from sklearn.decomposition import PCA
 from anim_utils.animation_data import BVHReader, SkeletonBuilder
 from scipy.optimize import minimize
 from anim_utils.utilities import write_to_json_file,  load_json_file
-from anim_utils.motion_analysis.prepare_data import scale_root_channels, reshape_data_for_PCA,\
+from ..motion_analysis.prepare_data import scale_root_channels, reshape_data_for_PCA,\
                                                          convert_quat_functional_data_to_cartesian_functional_data, \
                                                          reshape_2D_data_to_motion_data
 

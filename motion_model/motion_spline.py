@@ -26,7 +26,6 @@ Created on Mon Jan 26 13:51:36 2015
 @author: Markus Mauer, Erik Herrmann
 """
 import numpy as np
-from anim_utils.animation_data.bvh import BVHReader, BVHWriter
 import scipy.interpolate as si
 from . import B_SPLINE_DEGREE
 

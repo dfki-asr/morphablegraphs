@@ -26,20 +26,16 @@ Created on Thu Jul 16 15:57:51 2015
 @author: Erik Herrmann
 """
 
-import os
 import json
 from anim_utils.animation_data.bvh import BVHReader
 from anim_utils.animation_data.skeleton_builder import SkeletonBuilder
-from anim_utils.animation_data.quaternion_frame import euler_to_quaternion
-from anim_utils.utilities.io_helper_functions import load_json_file
-from anim_utils.utilities.log import write_message_to_log, LOG_MODE_DEBUG, LOG_MODE_ERROR, LOG_MODE_INFO
 from ..utilities.zip_io import ZipReader, SKELETON_BVH_STRING_KEY, SKELETON_JSON_KEY
 from .motion_state_transition import MotionStateTransition
 from .motion_state_graph import MotionStateGraph
 from .motion_state_group import MotionStateGroup
 from .motion_state_graph_node import MotionStateGraphNode
 from ..motion_generator.hand_pose_generator import HandPoseGenerator
-from . import TRANSITION_MODEL_DIRECTORY_NAME, NODE_TYPE_START, NODE_TYPE_STANDARD,NODE_TYPE_CYCLE_END, NODE_TYPE_END, TRANSITION_DEFINITION_FILE_NAME, TRANSITION_MODEL_FILE_ENDING, NODE_TYPE_IDLE
+from . import NODE_TYPE_START, NODE_TYPE_STANDARD,NODE_TYPE_CYCLE_END, NODE_TYPE_END, TRANSITION_DEFINITION_FILE_NAME, TRANSITION_MODEL_FILE_ENDING, NODE_TYPE_IDLE
 from ..utilities.db_interface import download_graph_from_remote_db, get_skeleton_from_remote_db, get_skeleton_model_from_remote_db, download_motion_model_from_remote_db, download_cluster_tree_from_remote_db
 from ..utilities import convert_to_mgrd_skeleton
 

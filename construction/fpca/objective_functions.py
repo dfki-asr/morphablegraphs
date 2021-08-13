@@ -24,8 +24,8 @@ import numpy as np
 from . import LEN_CARTESIAN, LEN_QUAT
 from sklearn.decomposition import PCA
 from .functional_data import FunctionalData
-from morphablegraphs.utilities.custom_math import cartesian_splines_distance
-from morphablegraphs.motion_analysis.prepare_data import reshape_data_for_PCA, reshape_2D_data_to_motion_data, \
+from ...utilities.custom_math import cartesian_splines_distance
+from ...motion_analysis.prepare_data import reshape_data_for_PCA, reshape_2D_data_to_motion_data, \
                                                          convert_quat_functional_data_to_cartesian_functional_data
 
 
