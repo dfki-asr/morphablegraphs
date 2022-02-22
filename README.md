@@ -16,14 +16,14 @@ The examples directory provides a command line interface for motion modelling an
 
 Call the motion primitive modelling pipeline mg_construction_pipeline.py from the command line:
 ```bat  
-python examples/run_construction.py  --name walk  --skel_filename skeleton.bvh --input_folder data/walk --output_folder out
+python examples/run_construction.py --name walk  --skel_filename skeleton.bvh --input_folder data/walk --output_folder out
 ```
 
 ### Motion Synthesis
 
 For the integration with a game engine, the [mg_server](https://github.com/eherr/mg_server) repository contains a stateful motion synthesis server.  
-The script mg_rest_interface.py provides a legacy REST interface localhost:port/run_morphablegraphs to runs the synthesis offline given the configuration file examples/config/service.config.
-It can be called using an HTTP POST message with a string containing the input file as message body. An example input file is provided in example/example_input.json.
+The script mg_rest_interface.py provides a legacy REST interface localhost:port/run_morphablegraphs to rus the synthesis offline.
+It can be called using an POST message with a string containing the constraints as message body. An example input constraints is provided in example/example_input.json.
 
 
 ## Developers
