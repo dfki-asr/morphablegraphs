@@ -1,0 +1,100 @@
+ {
+  "session" : "session",
+  "startPose" : {
+    "position" : [ 530.110290527344, 268.851318359375, 0.0 ],
+    "orientation" : [ -1.40170064921927E-14, -2.11894517055238E-6, 91.4786896560991 ]
+  },
+  "elementaryActions" : [ {
+    "action" : "walk",
+    "constraints" : [ {
+      "joint" : "Hips",
+      "trajectoryConstraints" : [ {
+        "position" : [ 530.110290527344, 268.851318359375, null ],
+        "orientation" : [ null, null, null ]
+      }, {
+        "position" : [ 355.0, 255.0, null ],
+        "orientation" : [ null, null, null ]
+      }, {
+        "position" : [ 195.0, 255.0, null ],
+        "orientation" : [ null, null, null ]
+      }, {
+        "position" : [ 147.011029052734, 206.885131835938, null ],
+        "orientation" : [ null, null, null ]
+      }, {
+        "position" : [ 60.0, 200.0, null ],
+        "orientation" : [ null, null, null ]
+      }, {
+        "position" : [ 30.0, 200.0, null ],
+        "orientation" : [ null, null, null ]
+      } ]
+    } ]
+  }, {
+    "action" : "pickRight",
+    "constraints" : [ {
+      "joint" : "RightHand",
+      "keyframeConstraints" : [ {
+        "position" : [ -30.0000009536743, 200.0, 130.0 ],
+        "orientation" : [ null, null, null ],
+        "semanticAnnotation" : {
+          "start_contact" : true
+        }
+      } ]
+    } ],
+    "keyframeAnnotations" : [ {
+      "keyframe" : "start_contact",
+      "annotations" : [ {
+        "event" : "attach",
+        "parameters" : {
+          "joint" : "RightHand",
+          "target" : "part_8556319"
+        }
+      } ]
+    } ]
+  }, {
+    "action" : "carryRight",
+    "constraints" : [ {
+      "joint" : "Hips",
+      "trajectoryConstraints" : [ {
+        "position" : [ 30.0000000000001, 200.0, null ],
+        "orientation" : [ null, null, null ]
+      }, {
+        "position" : [ 35.0, 215.0, null ],
+        "orientation" : [ null, null, null ]
+      }, {
+        "position" : [ 105.0, 285.0, null ],
+        "orientation" : [ null, null, null ]
+      }, {
+        "position" : [ 108.39608, 436.52072, null ],
+        "orientation" : [ null, null, null ]
+      }, {
+        "position" : [ 161.5512, 462.8008, null ],
+        "orientation" : [ null, null, null ]
+      }, {
+        "position" : [ 191.5512, 462.8008, null ],
+        "orientation" : [ null, null, null ]
+      } ]
+    } ]
+  }, {
+    "action" : "placeRight",
+    "constraints" : [ {
+      "joint" : "RightHand",
+      "keyframeConstraints" : [ {
+        "position" : [ 251.5512, 462.8008, 129.296196185303 ],
+        "orientation" : [ null, null, null ],
+        "semanticAnnotation" : {
+          "end_contact" : true
+        }
+      } ]
+    } ],
+    "keyframeAnnotations" : [ {
+      "keyframe" : "end_contact",
+      "annotations" : [ {
+        "event" : "detach",
+        "parameters" : {
+          "joint" : "RightHand",
+          "target" : "part_8556319"
+        }
+      } ]
+    } ]
+  } ]
+}

@@ -1,0 +1,10 @@
+{
+     "model_data_dir": "E:\\projects\\INTERACT\\repository\\data\\3 - Motion primitives\\motion_primitives_quaternion_PCA95",
+     "n_random_samples" : 10000,
+     "n_levels" : 10000,
+     "n_subdivisions_per_level" : 4,
+     "random_seed" : null,
+     "only_spatial_parameters" : true,
+     "store_data_indices_in_nodes": false,
+     "use_kd_tree": false
+}
