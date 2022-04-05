@@ -28,7 +28,7 @@ Created on Fri Jul 31 13:21:08 2015
 
 import numpy as np
 from scipy.optimize.optimize import approx_fprime
-from sklearn.mixture.gaussian_mixture import _estimate_log_gaussian_prob
+from sklearn.mixture._gaussian_mixture import _estimate_log_gaussian_prob
 from anim_utils.animation_data.motion_concatenation import transform_quaternion_frames, get_transform_from_start_pose, align_quaternion_frames_automatically
 from ...constraints.spatial_constraints import SPATIAL_CONSTRAINT_TYPE_TRAJECTORY_SET
 
