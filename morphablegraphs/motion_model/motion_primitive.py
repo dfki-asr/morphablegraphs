@@ -29,7 +29,8 @@ Created on Mon Jan 26 14:11:11 2015
 
 import numpy as np
 import json
-from sklearn.mixture.gaussian_mixture import GaussianMixture, _compute_precision_cholesky
+from sklearn.mixture import GaussianMixture
+from sklearn.mixture._gaussian_mixture import _compute_precision_cholesky
 import scipy.interpolate as si
 from . import B_SPLINE_DEGREE
 from .motion_spline import MotionSpline

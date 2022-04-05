@@ -36,7 +36,8 @@ except ImportError:
 
 from anim_utils.utilities.io_helper_functions import load_json_file
 from anim_utils.utilities.log import write_message_to_log, LOG_MODE_DEBUG, LOG_MODE_INFO, LOG_MODE_ERROR
-from sklearn.mixture.gaussian_mixture import GaussianMixture, _compute_precision_cholesky
+from sklearn.mixture import GaussianMixture
+from sklearn.mixture._gaussian_mixture import _compute_precision_cholesky
 
 
 class MotionPrimitiveModelWrapper(object):

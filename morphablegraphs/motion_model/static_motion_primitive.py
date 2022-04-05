@@ -21,7 +21,7 @@
 # OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 # USE OR OTHER DEALINGS IN THE SOFTWARE.
 import numpy as np
-from sklearn.mixture.gaussian_mixture import GaussianMixture
+from sklearn.mixture import GaussianMixture
 from .motion_spline import MotionSpline
 
 
