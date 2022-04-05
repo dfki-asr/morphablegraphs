@@ -4,7 +4,7 @@ Python implementation of statistical motion modelling and synthesis using Functi
 "Motion graphs++ a compact generative model for semantic motion analysis and synthesis." ACM Transactions on Graphics 31.6 (2012): 1-12.  
 
 The code uses data structures defined in the [anim_utils](https://github.com/eherr/anim_utils) repository. 
-The optional MGRD submodule is a proprietary faster implementation of the core library.
+The optional [MGRD](https://github.com/dfki-asr/mgrd) library is a proprietary faster implementation of the core.
 
 
 ## Usage
