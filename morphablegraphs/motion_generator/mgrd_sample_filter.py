@@ -31,7 +31,7 @@ try:
     from mgrd import score_splines_with_semantic_pose_constraints
     has_mgrd = True
 except ImportError:
-    print("Import failed")
+    print("MGRD is not installed")
     pass
     has_mgrd = False
 
