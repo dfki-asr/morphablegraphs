@@ -30,7 +30,8 @@ from ..constraints.spatial_constraints import SPATIAL_CONSTRAINT_TYPE_KEYFRAME_P
 
 class AnnotatedMotionVector(MotionVector):
     def __init__(self, skeleton=None, algorithm_config=None, rotation_type=ROTATION_TYPE_QUATERNION):
-        super(AnnotatedMotionVector, self).__init__(skeleton, algorithm_config, rotation_type)
+        super(AnnotatedMotionVector, self).__init__(skeleton, rotation_type=rotation_type)
+        self.algorithm_config = algorithm_config
         self.keyframe_event_list = None
         self.mg_input = None
         self.graph_walk = None
